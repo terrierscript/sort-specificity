@@ -1,12 +1,16 @@
 # Sort Specificity
 
 Sort css selector for specificity
+## Instalation
+
+```sh
+npm install sort-specificity
+```
 
 ## Usage
 
 ```js
-var sortSpecificity = require('./index')
-//var sortSpecificity = require('sort_specificity')
+var sortSpecificity = require('sort-specificity')
 var input = [
   "a .d b#foo",
   "b",

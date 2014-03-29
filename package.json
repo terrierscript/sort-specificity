@@ -1,12 +1,12 @@
 {
-  "name": "sort_specificity",
+  "name": "sort-specificity",
   "version": "0.0.0",
   "description": "sort css specificity",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "repository" : "https://github.com/suisho/sort_specificity",
+  "repository" : "https://github.com/suisho/sort-specificity",
   "keywords": [
     "css",
     "specificity",
