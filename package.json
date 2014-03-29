@@ -1,0 +1,22 @@
+{
+  "name": "sort_specificity",
+  "version": "0.0.0",
+  "description": "sort css specificity",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "css",
+    "specificity",
+    "sort"
+  ],
+  "author": "suisho",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "specificity": "^0.1.3"
+  }
+}
