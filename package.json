@@ -18,6 +18,7 @@
     "mocha": "^1.18.2"
   },
   "dependencies": {
+    "flatten": "0.0.1",
     "specificity": "^0.1.3"
   }
 }

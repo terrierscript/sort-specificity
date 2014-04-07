@@ -45,4 +45,14 @@ describe('specificity', function(){
     ]
     assert.deepEqual(result, expect)
   })
+  it("selector with comma", function(){
+    var input = [
+      "a , b.c", "p"
+    ]
+    var expect =[
+      "b.c", "p", "a"
+    ]
+    var result = sortSpecificity(input)
+    assert.deepEqual(result, expect)
+  })
 })

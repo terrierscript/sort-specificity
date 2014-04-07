@@ -1,8 +1,9 @@
 var specificity = require('specificity')
+var flatten = require("flatten")
 module.exports = function(selectors){
-  var specifs = selectors.map(function(selector){
-    return specificity.calculate(selector)[0]
-  })
+  var specifs = flatten(selectors.map(function(selector){
+    return specificity.calculate(selector)
+  }))
   var sorted = specifs.sort(function(a, b){
     var aSpec = a.specificity.split(",")
     var bSpec = b.specificity.split(",")
@@ -18,7 +19,8 @@ module.exports = function(selectors){
     }
     return 1
   })
+
   return sorted.map(function(item){
-    return item.selector
+    return item.selector.trim()
   })
 }
