@@ -1,6 +1,6 @@
 {
   "name": "sort-specificity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "sort css specificity",
   "main": "index.js",
   "scripts": {
