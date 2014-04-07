@@ -47,7 +47,7 @@ describe('specificity', function(){
   })
   it("selector with comma", function(){
     var input = [
-      "a , b.c", "p"
+      "a,b.c", "p"
     ]
     var expect =[
       "b.c", "p", "a"
@@ -55,4 +55,15 @@ describe('specificity', function(){
     var result = sortSpecificity(input)
     assert.deepEqual(result, expect)
   })
+  it("trim selector", function(){
+    var input = [
+      " a "," b "
+    ]
+    var expect =[
+      "b", "a"
+    ]
+    var result = sortSpecificity(input)
+    assert.deepEqual(result, expect)
+  })
+
 })
