@@ -67,3 +67,15 @@ describe('specificity', function(){
   })
 
 })
+
+describe("compare", function(){
+  it("a < b", function(){
+    assert.equal(sortSpecificity.compare("a", "a b"), 1)
+  })
+  it("a = b", function(){
+    assert.equal(sortSpecificity.compare("a", "b"), 1)
+  })
+  it("a > b", function(){
+    assert.equal(sortSpecificity.compare("b a", "b"), -1)
+  })
+})
