@@ -32,3 +32,11 @@ result is
   "b"
 ]
 ```
+
+### Input raw css
+You can input raw css.
+
+```js
+var css = fs.readFileSync("./fixtures/sample.css", "utf-8")
+var result = sortSpecificity(css) // parsed css selctor
+```

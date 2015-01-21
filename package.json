@@ -15,10 +15,12 @@
   "author": "suisho",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^1.18.2"
+    "mocha": "^1.18.2",
+    "rewire": "^2.1.4"
   },
   "dependencies": {
     "flatten": "0.0.1",
+    "postcss": "^4.0.1",
     "specificity": "^0.1.3"
   }
 }

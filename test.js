@@ -1,5 +1,8 @@
-var sortSpecificity = require('./index')
+var rewire = require("rewire")
+var sortSpecificity = rewire('./index')
+var fs = require("fs")
 var assert = require('assert')
+
 describe('specificity', function(){
   it('sort', function(){
     var input = [
@@ -65,7 +68,21 @@ describe('specificity', function(){
     var result = sortSpecificity(input)
     assert.deepEqual(result, expect)
   })
+  it("input raw css", function(){
+    var file = fs.readFileSync("./fixtures/sample.css", "utf-8")
+    var result = sortSpecificity(file)
+    var expect = [ 'a .b #c', '.a .b', 'a .b', 'a.b', '.b', '.a' ]
+    assert.deepEqual(result, expect)
+  })
+})
 
+describe("parseSelectors", function(){
+  it("enable parse css selectors", function(){
+    var css = fs.readFileSync("./fixtures/sample.css", "utf-8")
+    var result = sortSpecificity.__get__("parseSelectors")(css)
+    var expect = [ '.a', '.b', '.a .b', 'a.b', 'a .b', 'a .b #c' ]
+    assert.deepEqual(result, expect)
+  })
 })
 
 describe("compare", function(){
@@ -78,4 +95,5 @@ describe("compare", function(){
   it("a > b", function(){
     assert.equal(sortSpecificity.compare("b a", "b"), -1)
   })
+  it("a,b > c is error")
 })
