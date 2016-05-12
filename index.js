@@ -2,6 +2,7 @@ var specificity = require('specificity')
 var flatten = require("flatten")
 var postcss = require("postcss")
 var stableSort = require("stable")
+
 module.exports = function(selectors){
   if(typeof selectors === "string"){ // raw css
     selectors = parseSelectors(selectors)
@@ -15,6 +16,8 @@ module.exports = function(selectors){
     return item.selector.trim()
   })
 }
+
+// FIXME: More light and better parsing.
 var parseSelectors = function(css){
   var parsed = postcss(function(css){}).process(css)
   var nodes = parsed.root.nodes || []
@@ -24,7 +27,7 @@ var parseSelectors = function(css){
 }
 /**
  * return 1  if a < b(css specificity)
- * return 1  if a = b(css specificity)
+ * return 0  if a = b(css specificity)
  * return -1 if a > b(css specificity)
  */
 var compare = module.exports.compare = function(a, b){
