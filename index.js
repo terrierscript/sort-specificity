@@ -1,6 +1,7 @@
 var specificity = require('specificity')
 var flatten = require("flatten")
 var postcss = require("postcss")
+
 module.exports = function(selectors){
   if(typeof selectors === "string"){ // raw css
     selectors = parseSelectors(selectors)
@@ -16,6 +17,7 @@ module.exports = function(selectors){
     return item.selector.trim()
   })
 }
+
 var parseSelectors = function(css){
   var parsed = postcss(function(css){}).process(css)
   var nodes = parsed.root.nodes || []

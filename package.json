@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": "https://github.com/inuscript/sort-specificity",
   "keywords": [
     "css",
