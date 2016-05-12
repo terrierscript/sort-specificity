@@ -1,18 +1,18 @@
 {
   "name": "sort-specificity",
   "version": "0.2.0",
-  "description": "sort css specificity",
+  "description": "Sort CSS specificity",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "repository": "https://github.com/suisho/sort-specificity",
+  "repository": "https://github.com/inuscript/sort-specificity",
   "keywords": [
     "css",
     "specificity",
     "sort"
   ],
-  "author": "suisho",
+  "author": "inuscript",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^1.18.2",
