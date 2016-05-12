@@ -1,6 +1,7 @@
 var specificity = require('specificity')
 var flatten = require("flatten")
 var postcss = require("postcss")
+var stableSort = require("stable")
 
 module.exports = function(selectors){
   if(typeof selectors === "string"){ // raw css
@@ -9,9 +10,7 @@ module.exports = function(selectors){
   var specifs = flatten(selectors.map(function(selector){
     return specificity.calculate(selector)
   }))
-  var sorted = specifs.sort(function(a, b){
-    return compare(a,b)
-  })
+  var sorted = stableSort(specifs, compare)
 
   return sorted.map(function(item){
     return item.selector.trim()
@@ -24,11 +23,11 @@ var parseSelectors = function(css){
   var nodes = parsed.root.nodes || []
   return nodes.map(function(node){
     return node.selector
-  })  
+  })
 }
 /**
  * return 1  if a < b(css specificity)
- * return 1  if a = b(css specificity)
+ * return 0  if a = b(css specificity)
  * return -1 if a > b(css specificity)
  */
 var compare = module.exports.compare = function(a, b){
@@ -50,5 +49,5 @@ var compare = module.exports.compare = function(a, b){
       return -1
     }
   }
-  return 1
+  return 0
 }
