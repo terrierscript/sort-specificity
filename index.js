@@ -18,6 +18,7 @@ module.exports = function(selectors){
   })
 }
 
+// FIXME: More light and better parsing.
 var parseSelectors = function(css){
   var parsed = postcss(function(css){}).process(css)
   var nodes = parsed.root.nodes || []
