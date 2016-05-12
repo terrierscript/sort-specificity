@@ -31,8 +31,8 @@ describe('specificity', function(){
     var result = sortSpecificity(input)
     var expect = [
       ".foo",
-      "div",
       "a",
+      "div",
     ]
     assert.deepEqual(result, expect)
   })
@@ -43,8 +43,8 @@ describe('specificity', function(){
     ]
     var result = sortSpecificity(input)
     var expect = [
-      "a d",
       "a b",
+      "a d",
     ]
     assert.deepEqual(result, expect)
   })
@@ -53,7 +53,7 @@ describe('specificity', function(){
       "a,b.c", "p"
     ]
     var expect =[
-      "b.c", "p", "a"
+      "b.c", "a", "p"
     ]
     var result = sortSpecificity(input)
     assert.deepEqual(result, expect)
@@ -63,7 +63,7 @@ describe('specificity', function(){
       " a "," b "
     ]
     var expect =[
-      "b", "a"
+      "a", "b"
     ]
     var result = sortSpecificity(input)
     assert.deepEqual(result, expect)
@@ -71,8 +71,13 @@ describe('specificity', function(){
   it("input raw css", function(){
     var file = fs.readFileSync("./fixtures/sample.css", "utf-8")
     var result = sortSpecificity(file)
-    var expect = [ 'a .b #c', '.a .b', 'a .b', 'a.b', '.b', '.a' ]
+    var expect = [ 'a .b #c', '.a .b', 'a.b', 'a .b', '.a', '.b' ]
     assert.deepEqual(result, expect)
+  })
+  it("the sort is stable", function(){
+    var input = ['.c', '.b.', '.a']
+    var result = sortSpecificity(input)
+    assert.deepEqual(result, input)
   })
 })
 
@@ -90,7 +95,7 @@ describe("compare", function(){
     assert.equal(sortSpecificity.compare("a", "a b"), 1)
   })
   it("a = b", function(){
-    assert.equal(sortSpecificity.compare("a", "b"), 1)
+    assert.equal(sortSpecificity.compare("a", "b"), 0)
   })
   it("a > b", function(){
     assert.equal(sortSpecificity.compare("b a", "b"), -1)
