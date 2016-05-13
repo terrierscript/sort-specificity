@@ -1,6 +1,14 @@
 # Sort Specificity
 
 Sort css selector for specificity
+
+
+[![NPM](https://nodei.co/npm/sort-specificity.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sort-specificity/)
+[![npm version](https://badge.fury.io/js/sort-specificity.svg)](https://badge.fury.io/js/sort-specificity)
+[![Build Status](https://travis-ci.org/inuscript/sort-specificity.svg?branch=master)](https://travis-ci.org/inuscript/sort-specificity)
+
+
+
 ## Instalation
 
 ```sh
