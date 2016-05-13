@@ -18,7 +18,7 @@
   "author": "inuscript",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^1.18.2",
+    "mocha": "^2.4.5",
     "rewire": "^2.1.4"
   },
   "dependencies": {
