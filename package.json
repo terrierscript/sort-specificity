@@ -24,7 +24,7 @@
   "dependencies": {
     "flatten": "^1.0.2",
     "postcss": "^5.0.21",
-    "specificity": "^0.1.5",
+    "specificity": "^0.3.0",
     "stable": "0.1.5"
   }
 }
